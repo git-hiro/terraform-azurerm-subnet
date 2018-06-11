@@ -1,7 +1,7 @@
 output "subnet" {
   value = "${
     map(
-      "name", "${azurerm_subnet.vnet_subnets.name}",
+      "name", "${azurerm_subnet.subnet.name}",
     )
   }"
 }
