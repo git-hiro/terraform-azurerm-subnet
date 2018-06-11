@@ -6,8 +6,6 @@ resource "azurerm_subnet" "subnet" {
 
   address_prefix            = "${var.subnet["address_prefix"]}"
   network_security_group_id = "${azurerm_network_security_group.nsg.id}"
-
-  # depends_on = ["azurerm_network_security_group.nsg"]
 }
 
 resource "azurerm_network_security_group" "nsg" {
