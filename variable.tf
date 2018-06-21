@@ -1,24 +1,21 @@
-variable "subnet" {
+variable "vnet" {
   default = {
-    vnet_resource_group_name = ""
-    vnet_name                = ""
-
-    name           = ""
-    address_prefix = ""
+    resource_group_name = ""
+    name                = ""
   }
 }
 
 variable "nsg" {
   default = {
-    required = false
-
     resource_group_name = ""
-
-    name     = ""
-    location = ""
+    name                = ""
   }
 }
 
-variable "nsg_rules" {
-  default = []
+variable "subnet" {
+  default = {
+    name              = ""
+    address_prefix    = ""
+    service_endpoints = ""
+  }
 }
