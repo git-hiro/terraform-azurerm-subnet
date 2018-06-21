@@ -7,6 +7,8 @@ variable "vnet" {
 
 variable "nsg" {
   default = {
+    required = false
+
     resource_group_name = ""
     name                = ""
   }

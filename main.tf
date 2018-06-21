@@ -1,4 +1,6 @@
 data "azurerm_network_security_group" "nsg" {
+  count = "${var.nsg["required"] ? 1 : 0}"
+
   resource_group_name = "${var.nsg["resource_group_name"]}"
   name                = "${var.nsg["name"]}"
 }
@@ -11,5 +13,5 @@ resource "azurerm_subnet" "subnet" {
   address_prefix = "${var.subnet["address_prefix"]}"
 
   service_endpoints         = ["${compact(split(",", var.subnet["service_endpoints"]))}"]
-  network_security_group_id = "${data.azurerm_network_security_group.nsg.id}"
+  network_security_group_id = "${join("", data.azurerm_network_security_group.nsg.*.id)}"
 }
